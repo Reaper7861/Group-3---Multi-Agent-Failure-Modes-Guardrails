@@ -18,7 +18,7 @@ nodes and conditional edges. Safety does not depend on model judgment.
 
 ![Diagram](docs/diagrams/frozen_graph_design.png)
 
-[Link to Diagram](docs/diagrams/frozen_graph_design.png)
+[Link to Diagram (made in draw.io)](docs/diagrams/frozen_graph_design.png)
 
 
 The Context Manager executes before every Coordinator transition, including
