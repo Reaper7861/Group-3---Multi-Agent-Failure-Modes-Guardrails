@@ -5,8 +5,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from privacy import count_sensitive_values
-from student_5_trace.snippet import telemetry_payload
+from orchestrator.privacy import count_sensitive_values
+from priyanka_trace.snippet import telemetry_payload
 from contract import AgentState
 
 SENSITIVE_STATE = {

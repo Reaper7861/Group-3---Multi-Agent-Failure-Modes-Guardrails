@@ -1,4 +1,4 @@
-"""Student 4: sanitize downstream execution payloads before arithmetic."""
+"""Sanitize downstream execution payloads before arithmetic."""
 
 from typing import Any
 

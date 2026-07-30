@@ -1,6 +1,6 @@
-"""Student 1: deterministic graph-loop guard."""
+"""Deterministic graph-loop guard."""
 
-from config import MAX_ROUNDS
+from orchestrator.config import MAX_ROUNDS
 from contract import AgentState
 
 

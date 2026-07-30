@@ -6,7 +6,7 @@ from pathlib import Path
 
 import requests
 
-from config import SUPPORTED_SYMBOLS
+from orchestrator.config import SUPPORTED_SYMBOLS
 from contract import MarketSnapshot
 
 FIXTURE_PATH = Path(__file__).with_name("demo_market_data.json")

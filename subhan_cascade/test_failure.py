@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from student_4_cascade.snippet import validate_downstream
+from subhan_cascade.snippet import validate_downstream
 from contract import AgentState, AnalysisPayload, ExecutionState, MarketSnapshot
 
 MALFORMED = {"symbol": "AAPL", "action": "BUY", "quantity": "TEN THOUSAND", "price": None}

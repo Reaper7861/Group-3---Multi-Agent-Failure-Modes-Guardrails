@@ -4,7 +4,7 @@ import json
 import re
 from typing import Any
 
-from config import MAX_CONTEXT_TOKENS
+from orchestrator.config import MAX_CONTEXT_TOKENS
 
 
 def count_tokens(messages: list[dict[str, Any]]) -> int:

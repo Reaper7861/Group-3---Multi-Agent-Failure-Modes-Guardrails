@@ -1,7 +1,7 @@
-"""Student 2: Pydantic schema guard with one retry maximum."""
+"""Pydantic schema guard with one retry maximum."""
 from pydantic import ValidationError
 
-from config import MAX_RETRIES
+from orchestrator.config import MAX_RETRIES
 from contract import AnalysisPayload
 
 
