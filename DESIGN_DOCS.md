@@ -16,37 +16,10 @@ nodes and conditional edges. Safety does not depend on model judgment.
 
 ### Frozen Graph Design Tree
 
-```text
-START
-  |
-  v
-Context Manager <-------------------------------------------+
-  |                                                         |
-  v                                                         |
-Coordinator -- round >= 5 ----------------> Partial Output -> END
-  |                                                         |
-  +-- missing analysis --> Worker A: Analyst                |
-  |                          |                               |
-  |                          v                               |
-  |                       Schema Guard -- invalid ---------->+ (retry once)
-  |                          | valid                         |
-  +-- missing execution -> Worker B: Actor                  |
-  |                          |                               |
-  |                          v                               |
-  |                       Tool Middleware -- blocked ------> Error Handler
-  |                          | approved                      |
-  |                          v                               |
-  |                       Cascade Guard -- malformed ------> Error Handler
-  |                          | valid                         |
-  +-- not risk-approved -> Worker C: Validator              |
-  |                          | rejected --------------------> Error Handler
-  |                          | approved                      |
-  +-- no report ---------> Worker D: Reporter               |
-  |                          |                               |
-  +--------------------------+------------------------------> Context Manager
-  |
-  +-- final report ----------------------------------------> END
-```
+![Diagram](docs/diagrams/frozen_graph_design.png)
+
+[Link to Diagram](docs/diagrams/frozen_graph_design.png)
+
 
 The Context Manager executes before every Coordinator transition, including
 retry loops. Schema and cascade guards are explicit boundary nodes and do not
