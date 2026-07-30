@@ -16,7 +16,7 @@ nodes and conditional edges. Safety does not depend on model judgment.
 
 ### Frozen Graph Design Tree
 
-![Diagram](docs/diagrams/frozen_graph_design.png)
+![Diagram](diagram/frozen_graph_design.png)
 
 [Link to Diagram (open with Draw.io)](https://drive.google.com/file/d/1g5GMa8icj9A-rzcTMI2jCZr5EUy7J465/view?usp=sharing)
 
