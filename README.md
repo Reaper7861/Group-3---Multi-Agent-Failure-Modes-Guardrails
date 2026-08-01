@@ -69,3 +69,6 @@ python -m pytest -q -s
 ├── .env.example             # API-key environment template
 └── .gitignore               # Files excluded from Git
 ```
+## Individual Failure Demo Videos
+- **Student 2 (Yifan) — Silent Hallucination Guardrail:** [Watch Demo](./Yifan_silent/student2_silent_demo.mp4)
+- 
