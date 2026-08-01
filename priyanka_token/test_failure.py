@@ -5,7 +5,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from student_6_tokens.snippet import compact
+from priyanka_token.snippet import compact
 from contract import AgentState, AnalysisPayload, MarketSnapshot
 
 

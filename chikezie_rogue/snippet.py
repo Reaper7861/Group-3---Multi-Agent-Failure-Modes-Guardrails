@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from config import MAX_QUANTITY, MAX_TRADE_NOTIONAL, SUPPORTED_SYMBOLS
-from mock_tools import MOCK_TOOL_REGISTRY
+from orchestrator.config import MAX_QUANTITY, MAX_TRADE_NOTIONAL, SUPPORTED_SYMBOLS
+from orchestrator.mock_tools import MOCK_TOOL_REGISTRY
 
 REQUIRED_ARGUMENTS = frozenset({"symbol", "quantity", "price"})
 

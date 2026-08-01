@@ -1,5 +1,0 @@
-{
-  "AAPL": {"symbol": "AAPL", "price": 224.50, "open": 222.80, "high": 226.10, "low": 221.90, "volume": 48210000, "change_pct": 0.76},
-  "NVDA": {"symbol": "NVDA", "price": 138.85, "open": 136.90, "high": 140.20, "low": 135.75, "volume": 201400000, "change_pct": 1.42},
-  "JPM": {"symbol": "JPM", "price": 241.30, "open": 240.10, "high": 243.00, "low": 238.90, "volume": 10400000, "change_pct": 0.50}
-}
