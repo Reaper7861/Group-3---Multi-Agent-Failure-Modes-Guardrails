@@ -4,7 +4,17 @@
 
 
 
-## Student 2 — Structural Output Validation
+## Yifan — Structural Output Validation
+
+**Situation:** In our Financial Trading Bot orchestrator, the Analyzer converts raw market text into structured trade instructions. A hallucinated but plausible-looking output — a missing ticker symbol or an impossible confidence score — could silently flow into Trade Execution and Risk Checks.. 
+
+**Task:** Reject missing fields and invalid values deterministically, while allowing exactly one automated self-correction attempt. 
+
+**Action:** I defined a Pydantic AnalysisPayload schema enforcing a literal action, non-empty symbol and rationale, a non-negative integer quantity, and bounded (0–1) confidence and risk scores. I placed a Schema Guard node after the Analyzer. On the first validation failure, the wrapper logs sanitized exception feedback, increments a shared retry counter, and routes back to the Analyzer; a second failure routes safely to the error handler. Tests inject missing structure, an empty symbol, a negative quantity, confidence 1.7, empty rationale, and risk 2.0.
+
+**Result:** Invalid acceptance dropped from 2/2 to 0/2 — blocking 100% of unsafe downstream trades. An integration test confirms exactly two Analyzer calls and one retry.
+
+**Technologies:** Pydantic v2, Gemini structured output, LangGraph, Python, pytest. This converts probabilistic text into a dependable interface without permitting retry storms.
 
 
 
