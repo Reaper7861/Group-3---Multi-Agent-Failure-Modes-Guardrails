@@ -20,6 +20,16 @@
 
 ## Student 3 — Rogue Tool Containment
 
+**Situation:** In our multi-agent Financial Trading Bot, the Trade Actor receives model-generated tool requests. A compromised or hallucinating agent could request a non-approved tool such as `place_live_order`, submit an excessive quantity, or add unexpected arguments. If the orchestrator trusted that request, probabilistic model output could cross the boundary into an unauthorized financial action.
+
+**Task:** I was responsible for ensuring that an agent could invoke only approved, side-effect-free simulation tools and that every request failed closed unless its name and arguments satisfied deterministic trading limits.
+
+**Action:** I built a middleware guard in `chikezie_rogue/snippet.py` around an explicit registry of mock buy, sell, and hold tools. Before dispatch, it verifies the tool name, requires the exact `symbol`, `quantity`, and `price` argument set, rejects unsupported symbols and incorrect Python types, caps quantity at 100, enforces a $10,000 maximum trade notional, and requires HOLD requests to use a zero quantity. Rejected calls return concrete reasons without invoking a tool. I also created deterministic tests that compare a vulnerable executor with the guarded path, inject a rogue `place_live_order` request for 1,000 shares, confirm malformed arguments are rejected, and verify that a valid approved request still produces a simulated result.
+
+**Result:** The vulnerable baseline accepted one unauthorized execution, while the guarded implementation accepted zero, giving us a 100% prevention rate in the failure demonstration. The guard also preserved legitimate behavior by successfully executing an approved mock purchase. This moved tool authorization out of model judgment and into a small, auditable policy boundary, ensuring that even adversarial agent output cannot trigger a live trade.
+
+**Technologies:** Python, LangGraph tool middleware, deterministic allowlists, shared-state contracts, and pytest.
+
 
 
 ## Subhan — Cascade Failure Prevention
@@ -42,5 +52,4 @@ I co-developed a multi-agent Financial Trading Bot platform using LangGraph. My 
 ## Priyanka- Context Budget Management
 
 In our multi-agent Financial Trading Bot built on LangGraph, I owned the context budget management layer. Because our system utilized dynamic Coordinator routing, high-frequency tasks like streaming market analysis caused the state history to bloat rapidly, driving up token costs and API latency. I engineered a Context Management Node that intercepted the graph state prior to every routing transition. This guardrail calculated token usage and, when we breached our 2,000-token limit, programmatically pruned intermediate market data outputs while summarizing older role-based messages. I also implemented a fallback estimator so the guardrail succeeds even when a provider tokenizer is unavailable. During our baseline stress tests, execution history regularly bloated to 120 messages. With the guardrail active, I reduced the context window to 13 high-signal messages. This dropped our estimated token consumption from 17,281 to 1,765 for an 89.8 percent reduction, ensuring cost-efficient trade execution without deadlocking the graph. 
-
 
