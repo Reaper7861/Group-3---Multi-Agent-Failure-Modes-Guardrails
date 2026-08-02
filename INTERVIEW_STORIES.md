@@ -1,8 +1,15 @@
 # Interview Stories
 
-## Student 1 — Infinite Loop Prevention
+## Chidimma — Infinite Loop Prevention
+Situation: The Coordinator node could get stuck in an adversarial routing loop, repeatedly sending tasks back to the Analyst node (Worker A) with no terminating condition. Left unchecked, this consumes API tokens indefinitely and prevents the graph from ever reaching a final report.
 
+Task: Guarantee the graph always reaches a terminating condition, regardless of how the routing logic behaves, without relying on the model to decide when to stop.
 
+Action: I implemented a deterministic round-counter directly in the shared Pydantic state contract (round_number), incremented on every Coordinator routing decision. The guarded router checks this counter before each route: once it reaches five rounds, it short-circuits execution and routes the graph to a safe partial-output node instead of continuing back to the Analyst. The failure test reproduces the vulnerable version — a router that always loops back to Analyst — running it for 100 bounded iterations to demonstrate the unguarded behavior safely, then verifies the guarded router stops itself at exactly five rounds.
+
+Result: Iterations dropped from 100 (vulnerable, artificially capped for testing) to 5 (guarded), a 95% reduction, with infinite continuation prevented 100% of the time. This gives the system a hard, predictable ceiling on cost and latency while guaranteeing clean graph termination even under adversarial or malformed routing conditions.
+
+Technologies: Python, Pydantic v2, LangGraph conditional routing, shared-state contracts, pytest.
 
 ## Yifan — Structural Output Validation
 
