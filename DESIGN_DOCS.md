@@ -93,10 +93,3 @@ The simulated portfolio starts with $100,000 cash and AAPL/MSFT/NVDA positions.
 The validator enforces supported symbol, integer quantity 0–100, action/quantity
 consistency, $10,000 maximum concept, cash sufficiency, available holdings for
 sells, valid schema risk range, positive price, and 20% post-trade concentration.
-
-## Measured Verification
-
-The six deterministic tests reduced loop iterations 100→5, invalid accepted
-payloads 2→0, unauthorized executions 1→0, downstream crashes 1→0, exposed
-sensitive values 5→0, and estimated context tokens 17,281→1,765. All tests
-terminate without external financial action.
