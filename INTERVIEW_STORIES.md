@@ -18,7 +18,7 @@
 
 
 
-## Student 3 — Rogue Tool Containment
+## Chikezie — Rogue Tool Containment
 
 **Situation:** In our multi-agent Financial Trading Bot, the Trade Actor receives model-generated tool requests. A compromised or hallucinating agent could request a non-approved tool such as `place_live_order`, submit an excessive quantity, or add unexpected arguments. If the orchestrator trusted that request, probabilistic model output could cross the boundary into an unauthorized financial action.
 
