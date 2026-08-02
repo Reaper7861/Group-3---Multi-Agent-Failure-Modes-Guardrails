@@ -60,6 +60,7 @@ python -m pytest -q -s
 ├── priyanka_trace/          # Student 5: privacy guardrail
 ├── priyanka_token/          # Student 6: context guardrail
 ├── diagram/                 # Architecture diagram (PNG)
+├── demo/                    # 5-minute technical demo video (MP4)
 ├── main_system.py           # CLI and integrated graph
 ├── contract.py              # Shared frozen state contract
 ├── DESIGN_DOCS.md           # System architecture and design decisions
@@ -68,7 +69,16 @@ python -m pytest -q -s
 ├── requirements.txt         # Python dependencies
 ├── .env.example             # API-key environment template
 └── .gitignore               # Files excluded from Git
+
 ```
+
+## 5-Minute Technical Demo Video
+[Watch Demo](./demo/Group%203_Multi-Agent_Demo.mp4)
+
 ## Individual Failure Demo Videos
-- **Student 2 (Yifan) — Silent Hallucination Guardrail:** [Watch Demo](./Yifan_silent/student2_silent_demo.mp4)
-- 
+- **Student 1 (Chidimma) - Infinite Graph Loops:** [Watch Demo](./chidimma_loop/chidimma_loop_demo.mp4)
+- **Student 2 (Yifan) — Silent Hallucinations & Structural Failures:** [Watch Demo](./Yifan_silent/yifan_silent_demo.mp4)
+- **Student 3 (Chikezie) - Rogue Tool Execution:** [Watch Demo]
+- **Student 4 (Subhan) - Downstream Cascade Failure:** [Watch Demo](./subhan_cascade/subhan_cascade_demo.mp4)
+- **Student 5 (Priyanka) - Data Privacy Leak via Telemetry:** [Watch Demo]
+- **Student 6 (Priyanka) - Context Window Explosion & Token Burn:** [Watch Demo]
