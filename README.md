@@ -23,6 +23,12 @@ but all trades are simulated and the system never places real orders.
 - Streamlit
 - Pytest
 
+## LangSmith Trace
+
+View an example end-to-end LangGraph execution:
+
+[Open the shared LangSmith trace](https://smith.langchain.com/public/bd263ee1-679e-4bf6-8a39-91f091457019/r/019fc0e0-4626-7c11-836c-34927dd6ec4f?start_time=2026-08-02T05%3A09%3A11.333787Z)
+
 ## Setup
 
 ```powershell
