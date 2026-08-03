@@ -84,7 +84,7 @@ python -m pytest -q -s
 ## Individual Failure Demo Videos
 - **Student 1 (Chidimma) - Infinite Graph Loops:** [Watch Demo](./chidimma_loop/chidimma_loop_demo.mp4)
 - **Student 2 (Yifan) — Silent Hallucinations & Structural Failures:** [Watch Demo](./Yifan_silent/yifan_silent_demo.mp4)
-- **Student 3 (Chikezie) - Rogue Tool Execution:** [Watch Demo]
+- **Student 3 (Chikezie) - Rogue Tool Execution:** [Watch Demo](./chikezie_rogue/Project.mp4)
 - **Student 4 (Subhan) - Downstream Cascade Failure:** [Watch Demo](./subhan_cascade/subhan_cascade_demo.mp4)
 - **Student 5 (Priyanka) - Data Privacy Leak via Telemetry:** [Watch Demo](priyanka_trace/priyanka_trace_demo.mp4)
 - **Student 6 (Priyanka) - Context Window Explosion & Token Burn:** [Watch Demo](priyanka_token/priyanka_token_demo.mp4)
